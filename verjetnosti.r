@@ -38,8 +38,3 @@ karte <- paste(kupcek$vrednost, kupcek$barva)
 
 
 
-
-
-
-
-

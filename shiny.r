@@ -3,32 +3,25 @@ library(shiny)
 ui <- fluidPage(
   headerPanel("Izračun verjetnosti - Texas hold 'em"),
   sidebarPanel(
-    selectizeInput('karte_igr', 'Izberi svoje karte', karte, multiple = TRUE,
+    selectizeInput('karte_igr', 'Izberi svoji karti', karte, multiple = TRUE,
                 selected = 1, options = list(maxItems = 2)),
     
-    selectInput('flop', 'Flop karte so že odprte', c("NE", "DA")),
     conditionalPanel(
-      condition = "input.flop == 'DA'",
+      condition = "input.karte_igr != ''",
       selectizeInput('karte_flop', 'Izberi flop karte', karte, multiple = TRUE,
-                     selected = 1, options = list(maxItems = 3)),
+                   selected = 1, options = list(maxItems = 3)),
     ),
     
     conditionalPanel(
-      condition = "input.flop == 'DA'",
-      selectInput('turn', 'Turn karta je že odprta', c("NE", "DA")),
-      conditionalPanel(
-        condition = "input.turn == 'DA'",
-        selectInput('karte_turn', 'Izberi turn karto', karte),
-      ),
-      
-      conditionalPanel(
-        condition = "input.turn == 'DA'",
-        selectInput('river', 'River karta je že odprta', c("NE", "DA")),
-        conditionalPanel(
-          condition = "input.river == 'DA'",
-          selectInput('karte_river', 'Izberi river karto', karte),
-        ),
-      ),
+      condition = "input.karte_flop != ''",
+      selectizeInput('karte_turn', 'Izberi turn karto', karte, multiple = TRUE,
+                     selected = 1, options = list(maxItems = 1)),
+    ),
+    
+    conditionalPanel(
+      condition = "input.karte_turn != ''",
+      selectizeInput('karte_river', 'Izberi river karto', karte, multiple = TRUE,
+                     selected = 1, options = list(maxItems = 1)),
     ),
     
     sliderInput('nasprotniki', 'Izberi število nasprotnikov', 1, 9, 1),
@@ -36,12 +29,17 @@ ui <- fluidPage(
     actionButton(inputId = "konec", label = "Naredi izračun!"),
   ),
   mainPanel(
-    
+    imageOutput("karte_igr1"),
   )
 )
 
 
 server <- function(input, output) {
+  output$karte_igr1 <- renderImage({
+    pot <- system.file(sprintf('Slike/%s.jpg', input$karte_igr[1]), package='imager')
+    slika <- load.image(pot)
+    plot(slika)
+  }, deleteFile = FALSE)
 }
 
 
