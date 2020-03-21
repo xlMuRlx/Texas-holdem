@@ -26,7 +26,7 @@ ui <- fluidPage(
     
     sliderInput('nasprotniki', 'Izberi število nasprotnikov', 1, 9, 1),
     
-    actionButton(inputId = "konec", label = "Naredi izračun!"),
+    actionButton(inputId = "konec", label = "Izračunaj!"),
   ),
   mainPanel(
     imageOutput("karte_igr1"),
@@ -44,3 +44,5 @@ server <- function(input, output) {
 
 
 shinyApp(ui = ui, server = server)
+
+

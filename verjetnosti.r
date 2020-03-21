@@ -33,6 +33,9 @@ ovrednoti <- function(kombinacija) {
 
 
 
+
+
+
 # Za lažji zapis shiny-ja
 karte <- paste(kupcek$vrednost, kupcek$barva)
 
