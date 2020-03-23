@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1584814114081.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3184713541",
+    "id" : "FF96BCAD",
+    "lastKnownWriteTime" : 1584970154,
+    "last_content_update" : 1584970154642,
+    "path" : "D:/Andraž/Namizje/Faks/Matematika z računalnikom/Texas-holdem/shiny/ui.r",
+    "project_path" : "shiny/ui.r",
+    "properties" : {
+        "cursorPosition" : "22,51",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

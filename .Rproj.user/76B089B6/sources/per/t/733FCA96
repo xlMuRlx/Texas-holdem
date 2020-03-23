@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1584986940049.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "735039010",
+    "id" : "733FCA96",
+    "lastKnownWriteTime" : 1584973201,
+    "last_content_update" : 1584973201,
+    "path" : "D:/Andraž/Namizje/Faks/Matematika z računalnikom/Texas-holdem/model.r",
+    "project_path" : "model.r",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

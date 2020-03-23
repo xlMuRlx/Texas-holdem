@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1584973144943.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2318406704",
+    "id" : "147E8A03",
+    "lastKnownWriteTime" : 1584992272,
+    "last_content_update" : 1584992272710,
+    "path" : "D:/Andraž/Namizje/Faks/Matematika z računalnikom/Texas-holdem/ovrednoti.r",
+    "project_path" : "ovrednoti.r",
+    "properties" : {
+        "cursorPosition" : "180,0",
+        "scrollLine" : "164",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
