@@ -21,14 +21,23 @@ ovrednoti <- function(kombinacija) {
   
   
   ###################################################################################################################
-  # Najprej vse črke spremenimo v ustrezne vrednosti, da jih lahko med seboj primerjamo                             #
+  # Kombinacijo najprej spremenimo v neko tabelo, saj nam to precej olajša njeno obravnavo.                         #
+  ###################################################################################################################
+
+  kombinacija <- separate(as.data.frame(kombinacija), kombinacija, c("vrednost", "barva"), sep = " ")
+  
+  
+  
+  
+  ###################################################################################################################
+  # Nato vse črke spremenimo v ustrezne vrednosti, da jih lahko med seboj primerjamo.                               #
   ###################################################################################################################
   
-  gsub("J", "11", kombinacija$vrednost)
-  gsub("Q", "12", kombinacija$vrednost)
-  gsub("K", "13", kombinacija$vrednost)
-  gsub("A", "14", kombinacija$vrednost)
-  kombinacija$vrednost <- as.numeric(kombinacija$vrednost) + 1
+  kombinacija$vrednost <- gsub("J", "11", kombinacija$vrednost)
+  kombinacija$vrednost <- gsub("Q", "12", kombinacija$vrednost)
+  kombinacija$vrednost <- gsub("K", "13", kombinacija$vrednost)
+  kombinacija$vrednost <- gsub("A", "14", kombinacija$vrednost)
+  kombinacija$vrednost <- as.numeric(kombinacija$vrednost)
   # as.numeric vrednost zmanjša za 1 (to sicer ne vpliva na rezultat, vendar vpliva na preglednost)
   
   kombinacija <- kombinacija[order(kombinacija$vrednost), ] # kombinacijo uredimo za lažje pregledovanje
@@ -38,7 +47,7 @@ ovrednoti <- function(kombinacija) {
   
   
   ###################################################################################################################
-  # Obravnavamo vse možne kombinacije in poiščemo najboljšo                                                         #
+  # Obravnavamo vse možne kombinacije in poiščemo najboljšo.                                                        #
   ###################################################################################################################
   
   # Zapišimo nek vektor, ki si shranjuje dosežene vrednosti. To potrebujemo zaradi lestvice in pa barve, saj njuni
@@ -58,7 +67,7 @@ ovrednoti <- function(kombinacija) {
   for (j in 1:length(razlike)) {
     if (razlike[j] == 0) {
       # Če se ne premaknemo navzgor, morebitno pojavitev indeksa odstranimo, sicer se nam bo pri naslednjem
-      # premiku navzgor podvojil.
+      # premiku karta 2x ponovila.
       izbrani_ind <- izbrani_ind[izbrani_ind != j]
     }
     if (razlike[j] == 1) {
@@ -102,7 +111,7 @@ ovrednoti <- function(kombinacija) {
       izbrana_barva <- skupaj_barve$x[which.max(skupaj_barve$freq)]
       izbrane <- kombinacija[kombinacija$barva == izbrana_barva, ]
       izbrane <- tail(izbrane, n=5) # če je slučajno več kot 5 kart iste barve, vzamemo največje
-      tocke <- append(tocke, 5 + sum(izbrane$vrednost)/100)
+      barve_lestvice <- append(barve_lestvice, 5 + sum(izbrane$vrednost)/100)
     }
   }
   
@@ -181,10 +190,10 @@ ovrednoti <- function(kombinacija) {
 
 
 # Pomoč pri testiranju delovanja funkcije ovrednoti (Po uporabi izbriši!)
-test <- kupcek[c(1, 4, 22, 8, 5, 43, 52), ]
-test1 <- kupcek[1:7, ]
-test2 <- kupcek[c(3, 4, 33, 47, 22, 10, 51), ]
-test3 <- kupcek[c(9, 22, 35, 38, 34, 42, 1), ]
+test <- karte[c(1, 4, 22, 8, 5, 43, 52)]
+test1 <- karte[1:7]
+test2 <- karte[c(3, 4, 33, 47, 22, 10, 51)]
+test3 <- karte[c(9, 22, 35, 38, 34, 42, 1)]
 
 ovrednoti(test)
 ovrednoti(test1)

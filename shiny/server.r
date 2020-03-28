@@ -58,7 +58,7 @@ server <- function(input, output, session) {
   
   # 1. Prikaz para igralčevih kart
   output$karta1 <- renderUI({
-    if(is.null(input$karte_igr[1]) == TRUE) {
+    if(is.null(input$karte_igr[1])) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -68,7 +68,7 @@ server <- function(input, output, session) {
   })
   
   output$karta2 <- renderUI({
-    if(is.null(input$karte_igr[2]) == TRUE) {
+    if(is.null(input$karte_igr[2])) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -85,7 +85,7 @@ server <- function(input, output, session) {
   
   # 2. Prikaz flop kart
   output$flop1 <- renderUI({
-    if(is.null(input$karte_flop[1]) == TRUE) {
+    if(is.null(input$karte_flop[1])) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -95,7 +95,7 @@ server <- function(input, output, session) {
   })
   
   output$flop2 <- renderUI({
-    if(is.null(input$karte_flop[2]) == TRUE) {
+    if(is.null(input$karte_flop[2])) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -110,7 +110,7 @@ server <- function(input, output, session) {
   })
   
   output$flop3 <- renderUI({
-    if(is.null(input$karte_flop[3]) == TRUE) {
+    if(is.null(input$karte_flop[3])) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -128,7 +128,7 @@ server <- function(input, output, session) {
   # 3. Prikaz turn in river karte
   
   output$turn <- renderUI({
-    if(is.null(input$karte_turn) == TRUE) {
+    if(is.null(input$karte_turn)) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -138,7 +138,7 @@ server <- function(input, output, session) {
   })
   
   output$river <- renderUI({
-    if(is.null(input$karte_river) == TRUE) {
+    if(is.null(input$karte_river)) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
