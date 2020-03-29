@@ -1,7 +1,3 @@
-library(shiny)
-
-
-
 server <- function(input, output, session) {
   
   ################################################################
@@ -14,7 +10,7 @@ server <- function(input, output, session) {
     ostanek <- ostanek[ostanek != input$karte_igr[2]]
     
     updateSelectInput(session, "karte_flop",
-                      label = paste("Izberi flop karte"),
+                      label = paste("Izberite flop karte"),
                       choices = ostanek,
     )
   })
@@ -29,7 +25,7 @@ server <- function(input, output, session) {
     ostanek <- ostanek[ostanek != input$karte_flop[3]]
     
     updateSelectInput(session, "karte_turn",
-                      label = paste("Izberi turn karto"),
+                      label = paste("Izberite turn karto"),
                       choices = ostanek,
     )
   })
@@ -45,7 +41,7 @@ server <- function(input, output, session) {
     ostanek <- ostanek[ostanek != input$karte_turn]
       
     updateSelectInput(session, "karte_river",
-                      label = paste("Izberi river karto"),
+                      label = paste("Izberite river karto"),
                       choices = ostanek,
     )
   })
@@ -58,7 +54,7 @@ server <- function(input, output, session) {
   
   # 1. Prikaz para igralčevih kart
   output$karta1 <- renderUI({
-    if(is.null(input$karte_igr[1])) {
+    if(length(input$karte_igr) < 1) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -68,24 +64,19 @@ server <- function(input, output, session) {
   })
   
   output$karta2 <- renderUI({
-    if(is.null(input$karte_igr[2])) {
+    if(length(input$karte_igr) < 2) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
-      if (is.na(input$karte_igr[2])) {
-        pot <- "zaprta.jpg"
-        img(src=pot, height="22%", width="22%", align="left")
-      } else {
-        pot <- paste0(input$karte_igr[2],".jpg")
-        img(src=pot, height="22%", width="22%", align="left")
-      }
+      pot <- paste0(input$karte_igr[2],".jpg")
+      img(src=pot, height="22%", width="22%", align="left")
     }
   })
   
   
   # 2. Prikaz flop kart
   output$flop1 <- renderUI({
-    if(is.null(input$karte_flop[1])) {
+    if(length(input$karte_flop) < 1) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -95,32 +86,22 @@ server <- function(input, output, session) {
   })
   
   output$flop2 <- renderUI({
-    if(is.null(input$karte_flop[2])) {
+    if(length(input$karte_flop) < 2) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
-      if (is.na(input$karte_flop[2])) {
-        pot <- "zaprta.jpg"
-        img(src=pot, height="22%", width="22%", align="left")
-      } else {
-        pot <- paste0(input$karte_flop[2],".jpg")
-        img(src=pot, height="22%", width="22%", align="left")
-      }
+      pot <- paste0(input$karte_flop[2],".jpg")
+      img(src=pot, height="22%", width="22%", align="left")
     }
   })
   
   output$flop3 <- renderUI({
-    if(is.null(input$karte_flop[3])) {
+    if(length(input$karte_flop) < 3) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
-      if (is.na(input$karte_flop[3])) {
-        pot <- "zaprta.jpg"
-        img(src=pot, height="22%", width="22%", align="left")
-      } else {
-        pot <- paste0(input$karte_flop[3],".jpg")
-        img(src=pot, height="22%", width="22%", align="left")
-      }
+      pot <- paste0(input$karte_flop[3],".jpg")
+      img(src=pot, height="22%", width="22%", align="left")
     }
   })
   
@@ -128,7 +109,7 @@ server <- function(input, output, session) {
   # 3. Prikaz turn in river karte
   
   output$turn <- renderUI({
-    if(is.null(input$karte_turn)) {
+    if(length(input$karte_turn) < 1) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -138,7 +119,7 @@ server <- function(input, output, session) {
   })
   
   output$river <- renderUI({
-    if(is.null(input$karte_river)) {
+    if(length(input$karte_river) < 1) {
       pot <- "zaprta.jpg"
       img(src=pot, height="22%", width="22%", align="left")
     } else {
@@ -146,6 +127,22 @@ server <- function(input, output, session) {
       img(src=pot, height="22%", width="22%", align="left")
     }
   })
+  
+  
+  
+  ################################################################
+  # Zapis izvajanja dejanskega modela                            #
+  ################################################################
+  
+  besedilo <- eventReactive(input$konec, {
+    model(input$karte_igr, input$karte_flop, input$karte_turn, input$karte_river, input$nasprotniki)
+  })
+  
+  output$rezultat <- renderText({
+    besedilo()
+  })
+  
+  
 }
 
 
