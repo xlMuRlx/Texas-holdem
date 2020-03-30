@@ -163,7 +163,7 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
 
 # Preizkus delovanja:
 
-model(karte[c(1, 3)], NULL, NULL, NULL, 2)
-model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 2)
-model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 2)
+#model(karte[c(1, 3)], NULL, NULL, NULL, 2)
+#model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 2)
+#model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 2)
 
