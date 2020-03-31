@@ -33,27 +33,32 @@ ui <- dashboardPage(
   
   
   dashboardBody(
-    
-    h1("Vaša roka"),
+    includeCSS("www/custom.css"),
     fluidRow(
-      uiOutput("karta1"),
-      uiOutput("karta2")
+      box(
+        title = "Vaša roka",width = 5, solidHeader = TRUE,
+        uiOutput("karta1"),
+        uiOutput("karta2")
+      ),
     ),
     
-    h1("Igralna miza"),
     fluidRow(
-      uiOutput("flop1"),
-      uiOutput("flop2"),
-      uiOutput("flop3"),
-                       
-      column(width=1),
-                       
-      uiOutput("turn"),
-                       
-      column(width=1),
-                       
-      uiOutput("river")
-   ),
+      box(
+        title = "Igralna miza",width = 12, background = "olive", solidHeader = TRUE,
+        uiOutput("flop1"),
+        uiOutput("flop2"),
+        uiOutput("flop3"),
+        
+        column(width=1),
+        
+        uiOutput("turn"),
+        
+        column(width=1),
+        
+        uiOutput("river")
+      ),
+    ),
+    
    
    h1("Iskana verjetnost"),
    textOutput("rezultat")

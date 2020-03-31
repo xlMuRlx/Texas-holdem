@@ -1,0 +1,28 @@
+.js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {background: #35654d;}
+
+.irs-bar {
+  border-color: transparent;
+ background-color: transparent;
+}
+
+.irs-bar-edge {
+border-color: transparent;
+background-color: transparent;
+}
+
+h1 {
+  font-family: 'Rockwell Condensed', cursive;
+  font-weight: 500;
+  line-height: 1.1;
+  color: saddleBrown
+}
+
+skin-blue .main-header .navbar {
+                              background-color: saddleBrown
+                              }
+
+.main-header .logo {
+  font-family: 'Rockwell Condensed', cursive;
+  font-weight: bold;
+  font-size: 24px;
+}

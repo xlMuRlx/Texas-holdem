@@ -56,20 +56,20 @@ server <- function(input, output, session) {
   output$karta1 <- renderUI({
     if(length(input$karte_igr) < 1) {
       pot <- "zaprta.png"
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="43%", width="43%", align="left")
     } else {
       pot <- paste0(input$karte_igr[1],".png")
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="43%", width="43%", align="left")
     }
   })
   
   output$karta2 <- renderUI({
     if(length(input$karte_igr) < 2) {
       pot <- "zaprta.png"
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="43%", width="43%", align="left")
     } else {
       pot <- paste0(input$karte_igr[2],".png")
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="43%", width="43%", align="left")
     }
   })
   
@@ -78,30 +78,30 @@ server <- function(input, output, session) {
   output$flop1 <- renderUI({
     if(length(input$karte_flop) < 1) {
       pot <- "zaprta.png"
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     } else {
       pot <- paste0(input$karte_flop[1],".png")
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     }
   })
   
   output$flop2 <- renderUI({
     if(length(input$karte_flop) < 2) {
       pot <- "zaprta.png"
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     } else {
       pot <- paste0(input$karte_flop[2],".png")
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     }
   })
   
   output$flop3 <- renderUI({
     if(length(input$karte_flop) < 3) {
       pot <- "zaprta.png"
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     } else {
       pot <- paste0(input$karte_flop[3],".png")
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     }
   })
   
@@ -111,20 +111,20 @@ server <- function(input, output, session) {
   output$turn <- renderUI({
     if(length(input$karte_turn) < 1) {
       pot <- "zaprta.png"
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     } else {
       pot <- paste0(input$karte_turn,".png")
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     }
   })
   
   output$river <- renderUI({
     if(length(input$karte_river) < 1) {
       pot <- "zaprta.png"
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     } else {
       pot <- paste0(input$karte_river,".png")
-      img(src=pot, height="15%", width="15%", align="left")
+      img(src=pot, height="16%", width="16%", align="left")
     }
   })
   
