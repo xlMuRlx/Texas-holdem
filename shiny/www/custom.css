@@ -1,4 +1,4 @@
-.js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {background: #35654d;}
+.js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {background: saddleBrown;}
 
 .irs-bar {
   border-color: transparent;
@@ -10,6 +10,8 @@ border-color: transparent;
 background-color: transparent;
 }
 
+
+/* Barva in font naslovov */
 h1 {
   font-family: 'Rockwell Condensed', cursive;
   font-weight: 500;
@@ -17,12 +19,52 @@ h1 {
   color: saddleBrown
 }
 
-skin-blue .main-header .navbar {
-                              background-color: saddleBrown
-                              }
+h2 {
+  font-family: 'Rockwell Condensed', cursive;
+  font-weight: 400;
+  line-height: 1.1;
+  color: wheat
+}
 
+h3 {
+  font-family: 'Rockwell Condensed', cursive;
+  font-weight: 300;
+  line-height: 1.1;
+  color: saddleBrown
+}
+
+/* Font in velikost naslova strani */
 .main-header .logo {
   font-family: 'Rockwell Condensed', cursive;
   font-weight: bold;
   font-size: 24px;
+}
+
+
+/* Barva glave okoli naslova strani*/
+.skin-blue .main-header .logo {
+                              background-color: saddleBrown
+                              }
+
+.skin-blue .main-header .logo:hover {
+                              background-color: sandyBrown
+                              }
+
+
+/* Barva preostanka glave */
+.skin-blue .main-header .navbar {
+                              background-color: saddleBrown
+                              }       
+
+.skin-blue .main-sidebar {
+                              background-color: peru
+                              } 
+
+/* Barva telesa */
+.content-wrapper, .right-side {
+                              background-color: wheat
+                                }
+
+.box {
+  background-color:#477148
 }

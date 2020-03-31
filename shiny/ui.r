@@ -44,7 +44,7 @@ ui <- dashboardPage(
     
     fluidRow(
       box(
-        title = "Igralna miza",width = 12, background = "olive", solidHeader = TRUE,
+        title = "Igralna miza",width = 12, solidHeader = TRUE,
         uiOutput("flop1"),
         uiOutput("flop2"),
         uiOutput("flop3"),
