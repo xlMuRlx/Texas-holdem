@@ -36,7 +36,7 @@ ui <- dashboardPage(
     includeCSS("www/custom.css"),
     fluidRow(
       box(
-        title = "Vaša roka",width = 5, solidHeader = TRUE,
+        title = "Vaša roka", width = 5, solidHeader = TRUE,
         uiOutput("karta1"),
         uiOutput("karta2")
       ),
@@ -44,7 +44,7 @@ ui <- dashboardPage(
     
     fluidRow(
       box(
-        title = "Igralna miza",width = 12, solidHeader = TRUE,
+        title = "Igralna miza", width = 12, solidHeader = TRUE,
         uiOutput("flop1"),
         uiOutput("flop2"),
         uiOutput("flop3"),
