@@ -33,7 +33,7 @@ Izračun teh verjetnosti torej predstavljajo temelj mojega programa. Seveda mora
 ## Model
 
 Temeljna funkcija mojega programa je funckcija `ovrednoti`, ki dani kombinaciji sedmih kart določi neko numerično vrednost, s pomočjo katere lahko kombinacije med seboj primerjamo. Pri tem je pomembno omeniti, da se vselej seveda upošteva zgolj 5 kart, ki sestavljajo najboljšo kombinacijo. Vrednost je sestavljena iz dveh delov, pri čemer nam celoštevilski del pove vrednost dosežene kombinacije, decimalni del pa vsoto upoštevanih kart, kar potrebujemo za medsebojno primerjavo enakih kombinacij. Vrednosti kombinacije so bile določene v skladu z njihovo močjo, in sicer:
-* visoka karta: 0 (npr. A:clubs:, J:diamonds:, 10:spades:, 5:clubs:, 2:hearts: ima vrednost 0,42)
+* najvišja karta: 0 (npr. A:clubs:, J:diamonds:, 10:spades:, 5:clubs:, 2:hearts: ima vrednost 0,42)
 * en par: 1 (npr. 10:hearts:, 10:clubs:, 9:hearts:, 4:diamonds:, 2:diamonds: ima vrednost 1,35)
 * dva para: 2 (npr. A:spades:, A:clubs:, J:diamonds:, J:clubs:, 7:spades: ima vrednost 2,57)
 * tris oz. set: 3 (npr. 8:clubs:, 8:spades:, 8:diamonds:, K:clubs:, 4:hearts: ima vrednost 3,41)
