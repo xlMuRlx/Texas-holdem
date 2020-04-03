@@ -32,22 +32,6 @@ Izračun teh verjetnosti torej predstavljajo temelj mojega programa. Seveda mora
 
 ## Model
 
-Glavna funkcija mojega programa je funckcija `ovrednoti`, ki dani kombinaciji sedmih kart določi neko numerično vrednost, s pomočjo katere lahko kombinacije med seboj primerjamo. Ta vrednost je sestavljena iz dveh delov, pri čemer nam celoštevilski del pove vrednost dosežene kombinacije, decimalni del pa vsoto upoštevanih kart, kar potrebujemo za medsebojno primerjavo enakih kombinacij.
+Temeljna funkcija mojega programa je funckcija `ovrednoti`, ki dani kombinaciji sedmih kart določi neko numerično vrednost, s pomočjo katere lahko kombinacije med seboj primerjamo. Ta vrednost je sestavljena iz dveh delov, pri čemer nam celoštevilski del pove vrednost dosežene kombinacije, decimalni del pa vsoto upoštevanih kart, kar potrebujemo za medsebojno primerjavo enakih kombinacij.
 
-Preostanek programa temelji na ideji Monte Carlo metod. Zaradi prevelikega števila možnih kombinacij je namreč obravnava vseh nemogoča, zato v resnici računamo približke iskanih verjetnosti. Za izbrane parametre tako program generira neko dovolj veliko število možnih scenarijev in opazuje v koliko od njih igralec zmaga. Za iskano verjetnost tako vzamemo kar razmerje, pridobljeno s pomočjo obravnave teh scenarijev.
-
-
-
-
-## Navodila za uporabnika
-
-<!--- Dodaj nahajanje programa, opis map, nahajanje knjižnic, ... --->
-
-Uporabnik v uporabniški konzoli izbere naslednje parametre, na podlagi katerih se izračuna iskana verjetnost:
-* 2 karti, ki jih ima v roki
-* 3 karte, ki se pojavijo v flop-u (izbira je neobvezna)
-* 1 turn karta (izbira je neobvezna)
-* 1 river karta (izbira je neobvezna)
-* število nasprotnikov.
-
-Po njihovi izbiri klikne na gumb *Izračunaj*, ki program požene in izpiše končno verjetnost.
+Preostanek programa temelji na ideji Monte Carlo metod in se nahaja v datoteki model.R, kjer je definirana tudi glavna funkcija za izračunavanje `model`. Zaradi prevelikega števila možnih kombinacij je namreč obravnava vseh nemogoča, zato v resnici računamo približke iskanih verjetnosti. Za izbrane parametre tako program generira neko dovolj veliko število možnih scenarijev in opazuje v koliko od njih igralec zmaga. Za iskano verjetnost tako vzamemo kar razmerje, pridobljeno s pomočjo obravnave teh scenarijev.
