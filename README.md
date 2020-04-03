@@ -7,6 +7,20 @@ Sam bom v projektu obravnaval le verjetnosti zmage igralca glede na karte, ki so
 
 
 
+## Navodila za uporabnika
+
+Glavni program se nahaja v datoteki ui.R. Po zagonu te datoteke se pred njim pojavi uporabniška konzola, v kateri uporabnik nato izbere naslednje parametre, na podlagi katerih se izračuna iskana verjetnost:
+* 2 karti, ki jih ima v roki
+* 3 karte, ki se pojavijo v flop-u (izbira je neobvezna)
+* 1 turn karta (izbira je neobvezna)
+* 1 river karta (izbira je neobvezna)
+* število nasprotnikov.
+
+Po njihovi izbiri klikne na gumb *Izračunaj!*, ki program požene in izpiše končno verjetnost.
+
+
+
+
 ## Kombinacije in njihove verjetnosti
 
 Temelj zgoraj vpisane igre vsekakor predstavljajo verjetnosti, da pridemo do neke želene kombinacije kart. Seveda so pravila igre zastavljena na način, da je najmočnejša kombinacija najmanj verjetna. Tako se npr. royal flush, pojavi zgolj z verjetnostjo 0.000154%, medtem ko do najpogostojstejše kombinacije, enega para, pridemo približno z verjetnostjo 42.3%. 
