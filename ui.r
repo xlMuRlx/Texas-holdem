@@ -1,5 +1,29 @@
+###########################################################################################################################
+# Najprej uvozimo vse potrebne knjižnice.                                                                                 #
+###########################################################################################################################
+library(imager)
+library(plyr)
+library(tidyr)
+library(shiny)
+library(shinydashboard)
+
+
+
+
+###########################################################################################################################
+# Nato uvozimo še ostali datoteki, v katerih se nahajajo funkcije, ki jih potrebujemo.                                    #
+###########################################################################################################################
+source("model.R")
+source("ovrednoti.R")
+
+
+
+
+###########################################################################################################################
+# S pomočjo tega pa nato res lahko ustrezno poženemo tudi aplikacijo.                                                     #
+###########################################################################################################################
 ui <- dashboardPage(
-  dashboardHeader(title="Texas hold 'em"),
+  dashboardHeader(title = "Texas hold 'em"),
   
   dashboardSidebar(
     selectizeInput('karte_igr', 'Izberite svoji karti', karte, multiple = TRUE,
@@ -59,9 +83,8 @@ ui <- dashboardPage(
       ),
     ),
     
-   
    h1("Iskana verjetnost"),
-   textOutput("rezultat")
+   h2(textOutput("rezultat"))
   )
 )
 

@@ -4,7 +4,7 @@ ovrednoti <- function(kombinacija) {
   # pa za medsebojno primerjavo istih kombinacij (npr. par trojk je slabši od para štiric).
   
   # Legenda:
-  #   visoka karta -> 0
+  #   najvišja karta -> 0
   #   en par -> 1
   #   dva para -> 2
   #   tris -> 3
@@ -38,7 +38,6 @@ ovrednoti <- function(kombinacija) {
   kombinacija$vrednost <- gsub("K", "13", kombinacija$vrednost)
   kombinacija$vrednost <- gsub("A", "14", kombinacija$vrednost)
   kombinacija$vrednost <- as.numeric(kombinacija$vrednost)
-  # as.numeric vrednost zmanjša za 1 (to sicer ne vpliva na rezultat, vendar vpliva na preglednost)
   
   kombinacija <- kombinacija[order(kombinacija$vrednost), ] # kombinacijo uredimo za lažje pregledovanje
   
@@ -189,16 +188,14 @@ ovrednoti <- function(kombinacija) {
 
 
 
-# Pomoč pri testiranju delovanja funkcije ovrednoti (Po uporabi izbriši!)
+# Par primerov uporabe funkcije:
 test <- karte[c(1, 4, 22, 8, 5, 43, 52)]
 test1 <- karte[1:7]
 test2 <- karte[c(3, 4, 33, 47, 22, 10, 51)]
-test3 <- karte[c(9, 22, 35, 38, 34, 42, 1)]
 
 ovrednoti(test)
 ovrednoti(test1)
 ovrednoti(test2)
-ovrednoti(test3)
 
 
 

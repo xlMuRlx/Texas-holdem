@@ -80,7 +80,7 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
   # ogledamo v koliko igrah je opazovan igralec zmagal glede na število iteracij in to vzamemo za iskano verjetnost.      #
   #########################################################################################################################
   
-  st_iteracij <- 5000
+  st_iteracij <- 10000
   st_zmag <- 0
   
   for (i in 1:st_iteracij) {
@@ -161,9 +161,8 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
 
 
 
-# Preizkus delovanja:
-
+# Par primerov uporabe funkcije:
 #model(karte[c(1, 3)], NULL, NULL, NULL, 2)
-#model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 2)
-#model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 2)
+#model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 3)
+#model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 1)
 
