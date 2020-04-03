@@ -42,6 +42,7 @@ Temeljna funkcija mojega programa je funckcija `ovrednoti`, ki dani kombinaciji 
 * full house: 6 (npr. J:klubs:, J:hearts:, J:spades:, 8:diamonds:, 8:hearts: ima vrednost 6,49)
 * poker: 7 (npr. Q:clubs:, Q:hearts:, Q:diamonds:, Q:spades:, 4:diamonds: ima vrednost 7,52)
 * barvna lestvica: 8 (npr. 9:clubs:, 8:clubs:, 7:clubs:, 6:clubs:, 5:clubs: ima vrednost 8,35)
+
 Pri tem je pomembno omeniti še dejstvo, da se običajno posebej obravnava še kraljevo lestvico. Ker pa v programu decimalni del predstavlja vsoto uporabljenih kart, smo z njim že upoštevali, da gre zgolj za najvišjo barvno lestvico, zato ni potrebno definirati še enega razreda (npr. A:hearts:, K:hearts:, Q:hearts:, J:hearts:, 10:hearts: ima vrednost 8,60).
 
 Preostanek programa temelji na ideji Monte Carlo metod in se nahaja v datoteki model.R, kjer je definirana tudi glavna funkcija za izračunavanje `model`. Zaradi prevelikega števila možnih kombinacij je namreč obravnava vseh nemogoča, zato v resnici računamo približke iskanih verjetnosti. Za izbrane parametre tako program generira neko dovolj veliko število možnih scenarijev in opazuje v koliko od njih igralec zmaga. Za iskano verjetnost tako vzamemo kar razmerje, pridobljeno s pomočjo obravnave teh scenarijev.
