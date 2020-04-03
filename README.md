@@ -39,7 +39,7 @@ Temeljna funkcija mojega programa je funckcija `ovrednoti`, ki dani kombinaciji 
 * tris oz. set: 3 (npr. 8:clubs:, 8:spades:, 8:diamonds:, K:clubs:, 4:hearts: ima vrednost 3,41)
 * lestvica: 4 (npr. Q:clubs:, J:diamonds:, 10:hearts:, 9:spades:, 8:diamonds: ima vrednost 4,50)
 * barva: 5 (npr. A:spades:, J:spades:, 8:spades:, 5:spades:, 2:spades: ima vrednost 5,40)
-* full house: 6 (npr. J:klubs:, J:hearts:, J:spades:, 8:diamonds:, 8:hearts: ima vrednost 6,49)
+* full house: 6 (npr. J:clubs:, J:hearts:, J:spades:, 8:diamonds:, 8:hearts: ima vrednost 6,49)
 * poker: 7 (npr. Q:clubs:, Q:hearts:, Q:diamonds:, Q:spades:, 4:diamonds: ima vrednost 7,52)
 * barvna lestvica: 8 (npr. 9:clubs:, 8:clubs:, 7:clubs:, 6:clubs:, 5:clubs: ima vrednost 8,35)
 
