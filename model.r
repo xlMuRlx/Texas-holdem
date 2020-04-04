@@ -86,7 +86,7 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
   
   parametri <- paste(c(igr_karte, flop, turn, river, nasprotniki), collapse = " ")
   
-  ze_izracunane <- read.csv("ze_izracunane.csv")
+  ze_izracunane <- read.csv("www\\ze_izracunane.csv")
   if (parametri %in% ze_izracunane$parametri) {
     verjetnost <- (ze_izracunane[ze_izracunane$parametri == parametri, ])$verjetnost
     return (paste0(sprintf("Verjetnost vaše zmage je enaka %s", verjetnost), "%."))
@@ -166,7 +166,6 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
     for (j in 1:length(kombinacije)) {
       vrednosti[[j]] <- ovrednoti(kombinacije[[j]])
     }
-    
     if (which.max(vrednosti) == 1) {
       st_zmag <- st_zmag + 1
     }
@@ -175,9 +174,8 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
   verjetnost <- round(100*st_zmag/st_iteracij, 2)
   
   nova_vrstica <- data.frame("parametri" = parametri, "verjetnost" = verjetnost)
-  ze_izracunane <- rbind(ze_izracunane, nova_vrstica)
   
-  write.csv(ze_izracunane,"ze_izracunane.csv", row.names = FALSE)
+  write.table(nova_vrstica,"www\\ze_izracunane.csv", row.names = FALSE, append = TRUE, sep = ",", col.names = FALSE)
   return(paste0(sprintf("Verjetnost vaše zmage je enaka %s", verjetnost), "%."))
 }
 
@@ -190,5 +188,5 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
 # Par primerov uporabe funkcije:
 model(karte[c(1, 3)], NULL, NULL, NULL, 2)
 model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 3)
-model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 1)
+model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 2)
 
