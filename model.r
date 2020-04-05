@@ -186,7 +186,7 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
 
 
 # Par primerov uporabe funkcije:
-model(karte[c(1, 3)], NULL, NULL, NULL, 2)
-model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 3)
-model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 2)
+# model(karte[c(12, 51)], NULL, NULL, NULL, 4)
+# model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 3)
+# model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 2)
 

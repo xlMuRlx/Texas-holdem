@@ -268,8 +268,8 @@ ovrednoti <- function(kombinacija) {
 
 
 # Par primerov uporabe funkcije:
-ovrednoti(karte[c(1, 4, 22, 8, 5, 43, 52)])
-ovrednoti(karte[1:7])
-ovrednoti(karte[c(3, 4, 33, 47, 22, 10, 51)])
-ovrednoti(c("A kriz",  "K kriz",  "Q kriz",  "J kriz",  "10 kriz", "Q srce",  "10 srce"))
+# ovrednoti(karte[c(1, 4, 22, 8, 5, 43, 52)])
+# ovrednoti(karte[1:7])
+# ovrednoti(karte[c(3, 4, 33, 47, 22, 10, 51)])
+# ovrednoti(c("A kriz",  "K kriz",  "Q kriz",  "J kriz",  "10 kriz", "Q srce",  "10 srce"))
 

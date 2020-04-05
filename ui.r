@@ -13,8 +13,8 @@ library(shinydashboard)
 ###########################################################################################################################
 # Nato uvozimo še ostali datoteki, v katerih se nahajajo funkcije, ki jih potrebujemo.                                    #
 ###########################################################################################################################
-source("model.R")
 source("ovrednoti.R")
+source("model.R")
 
 
 
