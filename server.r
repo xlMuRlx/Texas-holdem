@@ -135,8 +135,23 @@ server <- function(input, output, session) {
   ################################################################
   
   besedilo <- eventReactive(input$konec, {
-    model(input$karte_igr, input$karte_flop, input$karte_turn, input$karte_river, input$nasprotniki)
+    
+    # Najprej zapišemo vse potrebno za sprotno posodabljanje
+    progress <- shiny::Progress$new()
+    progress$set(message = "Izračunavam", value = 0)
+    on.exit(progress$close())
+    
+    updateProgress <- function(value = NULL, detail = NULL) {
+      if (is.null(value)) {
+        value <- progress$getValue()
+        value <- value + (progress$getMax() - value) / 1600
+      }
+      progress$set(value = value, detail = detail)
+    }
+    
+    model(input$karte_igr, input$karte_flop, input$karte_turn, input$karte_river, input$nasprotniki, updateProgress)
   })
+  
   
   output$rezultat <- renderText({
     besedilo()

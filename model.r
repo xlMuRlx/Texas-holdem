@@ -42,7 +42,7 @@ karte <- paste(kupcek$vrednost, kupcek$barva)
 # Zapis modela, ki na podlagi velikega števila iteracij izračuna verjetnost zmage igralčeve kombinacije kart.             #
 ###########################################################################################################################
 
-model <- function (igr_karte, flop, turn, river, nasprotniki) {
+model <- function (igr_karte, flop, turn, river, nasprotniki, updateProgress = NULL) {
   
   #########################################################################################################################
   # Najprej si ogledamo možnosti, da uporabnik ni pravilno izbral potrebnih kart. Poleg tega si označimo, če so bile flop #
@@ -84,7 +84,11 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
   # Najprej si ogledamo, če smo za dano kombinacijo že kdaj izračunali verjetnost.                                        #
   #########################################################################################################################
   
-  parametri <- paste(c(igr_karte, flop, turn, river, nasprotniki), collapse = " ")
+  # Vrstni red flop, turn in river kart pri izračunu ni pomemben. Ker sta pri istih kartah igralca verjetnosti za neki permutaciji
+  # teh kart verjetnosti enaki, jih bomo v zapisu uredili, s čimer se tega problema znebimo.
+  
+  # Uredimo tudi karti, ki jim ima igralec v roki
+  parametri <- paste(c(sort(igr_karte), sort(c(flop, turn, river)), nasprotniki), collapse = " ")
   
   ze_izracunane <- read.csv("www\\ze_izracunane.csv")
   if (parametri %in% ze_izracunane$parametri) {
@@ -145,11 +149,11 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
     kombinacije <- list()
     kombinacije[[1]] <- c(igr_karte, flop, turn, river)
   
-    for (i in 2:nasprotniki) {
+    for (k in 2:nasprotniki) {
       nakljucne <- sample(nove_karte, 2)
       nove_karte <- nove_karte[nove_karte != nakljucne[1]]
       nove_karte <- nove_karte[nove_karte != nakljucne[2]]
-      kombinacije[[i]] <- c(nakljucne, flop, turn, river)
+      kombinacije[[k]] <- c(nakljucne, flop, turn, river)
     }
   
   
@@ -169,13 +173,22 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
     if (which.max(vrednosti) == 1) {
       st_zmag <- st_zmag + 1
     }
+    
+    # Če funkciji v argument podamo tudi funkcijo za spremljanje napredka, moramo podati še kaj se bo sproti izpisovalo
+    if (is.function(updateProgress)) {
+      if (i %% 100 == 0 || i == 1) {
+        # Trenutno verjetnost posodabljamo na vsakih 100 iteracij
+        tekst <- paste0(paste("Trenutna verjetnost:", round(100*st_zmag/i, 2)), "%")
+      }
+      updateProgress(detail = tekst)
+    }
   }
   
   verjetnost <- round(100*st_zmag/st_iteracij, 2)
   
   nova_vrstica <- data.frame("parametri" = parametri, "verjetnost" = verjetnost)
   
-  write.table(nova_vrstica,"www\\ze_izracunane.csv", row.names = FALSE, append = TRUE, sep = ",", col.names = FALSE)
+  write.table(nova_vrstica, file.path("www", "ze_izracunane.csv"), row.names = FALSE, append = TRUE, sep = ",", col.names = FALSE)
   return(paste0(sprintf("Verjetnost vaše zmage je enaka %s", verjetnost), "%."))
 }
 
@@ -186,7 +199,7 @@ model <- function (igr_karte, flop, turn, river, nasprotniki) {
 
 
 # Par primerov uporabe funkcije:
-# model(karte[c(12, 51)], NULL, NULL, NULL, 4)
-# model(karte[c(1, 3)], karte[c(2, 4, 5)], karte[52], karte[31], 3)
+# model(karte[c(7, 43)], NULL, NULL, NULL, 4)
+# model(karte[c(48, 35)], karte[c(24, 36, 5)], karte[12], NULL, 3)
 # model(karte[c(13, 12)], karte[c(11, 10, 9)], NULL, NULL, 2)
 
