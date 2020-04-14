@@ -86,4 +86,10 @@ h3 {
 	}
 
 
+/* Urejanje tabel */
+.table {
+	border-collapse: collapse;
+	background-image: url("https://media.istockphoto.com/photos/sunset-in-the-wild-west-picture-id695204246?k=6&m=695204246&s=170667a&w=0&h=4iGEj2z-tQVASfLPDXqSewvXSOxCJluCmxu33LjXDiA=");
+	color: white;
+	}
 

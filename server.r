@@ -134,7 +134,7 @@ server <- function(input, output, session) {
   # Zapis izvajanja dejanskega modela                            #
   ################################################################
   
-  besedilo <- eventReactive(input$konec, {
+  koncno <- eventReactive(input$konec, {
     
     # Najprej zapišemo vse potrebno za sprotno posodabljanje
     progress <- shiny::Progress$new()
@@ -149,12 +149,19 @@ server <- function(input, output, session) {
       progress$set(value = value, detail = detail)
     }
     
+    
     model(input$karte_igr, input$karte_flop, input$karte_turn, input$karte_river, input$nasprotniki, updateProgress)
   })
   
   
   output$rezultat <- renderText({
-    besedilo()
+    paste0(sprintf("Verjetnost vaše zmage je enaka %s", koncno()[[2]]), "%.")
+  })
+  
+  
+  output$tabela <- renderTable(bordered = TRUE, {
+    pomozna <- as.data.frame(koncno()[[1]])
+    pomozna
   })
   
   

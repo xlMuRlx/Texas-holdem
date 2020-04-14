@@ -16,6 +16,10 @@ library(shinydashboard)
 source("ovrednoti.R")
 source("model.R")
 
+# options(encoding = "utf-8")
+# Če izpisovanje končne verjetnosti v konzoli ne deluje pravilno, jo naprej zaženi z odkomentirano zgornjo vrstico (še vedno
+# naj ne bi delalo) in nato znova z zakomentirano. (Zakaj je temu tako?)
+
 
 
 
@@ -84,7 +88,8 @@ ui <- dashboardPage(
     ),
     
    h1("Iskana verjetnost"),
-   h2(textOutput("rezultat"))
+   h2(textOutput("rezultat")),
+   tableOutput("tabela")
   )
 )
 

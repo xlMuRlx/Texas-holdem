@@ -1,17 +1,4 @@
-parametri,verjetnost
-2 kriz 4 kriz / / / / / 2,53.3
-K kriz Q pik / / / / / 3,46.6
-A kriz K kriz / / 10 kriz J kriz Q kriz 2,100
-"K karo K kriz / / / / / 4",57.6
-"10 karo 10 srce / 6 kriz J srce K kriz Q pik 3",46.4
-"10 pik 10 srce / / / / / 2",75.3
-"5 karo 8 kriz / / / / / 4",25.74
-"9 kriz Q kriz / / / / / 1",60.7
-"4 pik Q srce / / / / / 2",57.34
-"9 karo K srce / / / / / 1",60.88
-"6 srce K karo / / 4 kriz 7 karo J srce 2",49.1
-"4 pik 5 srce / / / / / 3",34.8
-"J karo J srce / / / / / 4",49.76
-"5 pik 7 srce / / / / / 3",37.74
-"3 srce 5 pik / / / / / 5",17.22
-"8 karo K karo / / 5 kriz A pik J kriz 5",9.22
+parametri;verjetnosti
+6 karo 9 kriz / / / / / 3;0 0 0 0 0 0 0 0 0 0
+"10 karo 10 srce / 6 kriz J srce K kriz Q pik 3";"33.7 0 10.72 5.48 1.12 16.38 0 0 0 0"
+"A karo K karo / / 10 karo J karo Q karo 2";"100 0 0 0 0 0 0 0 0 100"
