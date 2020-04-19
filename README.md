@@ -16,7 +16,7 @@ Glavni program se nahaja v datoteki ui.R. Po zagonu te datoteke se pred njim poj
 * 1 river karta (izbira je neobvezna)
 * število nasprotnikov.
 
-Po njihovi izbiri klikne na gumb *Izračunaj!*, ki program požene in izpiše končno verjetnost.
+Po njihovi izbiri klikne na gumb *Izračunaj!*, ki program požene in izpiše končno verjetnost zmage. Prav tako izriše tudi tabelo, ki prikazuje verjetnost zmage z neko specifično kombinacijo (npr. en par, lestvica, ...).
 
 
 
@@ -45,4 +45,4 @@ Temeljna funkcija mojega programa je funkcija `ovrednoti`, ki dani kombinaciji s
 
 Pri tem je pomembno omeniti še dejstvo, da se običajno posebej obravnava še kraljevo lestvico. Ker pa v programu decimalni del predstavlja vsoto uporabljenih kart, smo z njim že upoštevali, da gre zgolj za najvišjo barvno lestvico, zato ni potrebno definirati še enega razreda (npr. A:hearts:, K:hearts:, Q:hearts:, J:hearts:, 10:hearts: ima vrednost 8,60).
 
-Preostanek programa temelji na ideji Monte Carlo metod in se nahaja v datoteki model.R, kjer je definirana tudi glavna funkcija za izračunavanje `model`. Ta najprej preveri, če smo izbrano kombinacijo kart že kdaj srečali, saj si izračunane verjetnosti shranjujemo v datoteko ze_izracunane.csv. V kolikor je bila iskana verjetnost kdaj že izračunana, vrednost izpiše takoj, sicer pa jo izračunamo na novo. Zaradi prevelikega števila možnih kombinacij je obravnava vseh scenarijev nemogoča, zato v resnici računamo približke iskanih verjetnosti. Za izbrane parametre tako program naključno generira neko dovolj veliko število iger in opazuje v koliko od njih igralec zmaga. Za iskano verjetnost tako vzamemo kar razmerje, pridobljeno s pomočjo obravnave teh scenarijev.
+Preostanek programa temelji na ideji Monte Carlo metod in se nahaja v datoteki model.R, kjer je definirana tudi glavna funkcija za izračunavanje `model`. Ta najprej preveri, če smo izbrano kombinacijo kart že kdaj srečali, saj si izračunane verjetnosti shranjujemo v datoteko ze_izracunane.csv. V kolikor so bile iskane verjetnosti kdaj že izračunane, vrednosti izpiše takoj, sicer pa jih izračunamo na novo. Zaradi prevelikega števila možnih kombinacij je obravnava vseh scenarijev nemogoča, zato v resnici računamo približke iskanih verjetnosti. Za izbrane parametre tako program naključno generira neko dovolj veliko število iger in opazuje v koliko od njih igralec zmaga in v primeru zmage tudi na kakšen način. Za iskane verjetnosti tako vzamemo kar razmerja, pridobljeno s pomočjo obravnave teh scenarijev.
