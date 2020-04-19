@@ -205,12 +205,22 @@ ovrednoti <- function(kombinacija) {
   
   
   # 4. Full house
-  if ((3 %in% skupaj_vrednosti$freq) && (2 %in% skupaj_vrednosti$freq)) {
-    # Če se v kombinaciji pojavita tako par kot tris, gre za full house
-    vrednost_tris <- (skupaj_vrednosti[skupaj_vrednosti$freq == 3, ])[1, 1] # ta se ob pogoju lahko pojavi le enkrat
-    vrednost_par <- skupaj_vrednosti[skupaj_vrednosti$freq == 2, ]
-    vrednost_par <- max(vrednost_par$x) # ta se lahko pojavi dvakrat, zato izberemo večjo možnost
-    return(6 + (3*vrednost_tris + 2*vrednost_par)/100)
+  if ((3 %in% skupaj_vrednosti$freq)) {
+    vrednost_tris <- skupaj_vrednosti[skupaj_vrednosti$freq == 3, ]
+    # Imamo 2 možnosti: dva trisa ali tris in par, zato ločimo dva primera
+    if (nrow(vrednost_tris) == 2) {
+      # Možnost dveh trisov. Za tris vzamemo večje, za par pa manjše vrednosti.
+      vrednost_par <- min(vrednost_tris$x)
+      vrednost_tris <- max(vrednost_tris$x)
+      return(6 + (3*vrednost_tris + 2*vrednost_par)/100)
+    }
+    if (2 %in% skupaj_vrednosti$freq) {
+      # Možnost par in tris. Tokrat lahko par nastopi 2x, zato vzamemo večjega.
+      vrednost_tris <- vrednost_tris[1, 1]
+      vrednost_par <- skupaj_vrednosti[skupaj_vrednosti$freq == 2, ]
+      vrednost_par <- max(vrednost_par$x)
+      return(6 + (3*vrednost_tris + 2*vrednost_par)/100)
+    }
   }
   
   

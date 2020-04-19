@@ -51,12 +51,12 @@ model <- function (igr_karte, flop, turn, river, nasprotniki, updateProgress = N
   
   if (length(igr_karte) < 2) {
     # uporabnik ni ustrezno izbral svojih kart
-    return("Prosim izberite karte, ki jih imate v roki.")
+    return(list(NULL, "Prosim izberite karte, ki jih imate v roki."))
   }
   
   if (length(flop) == 1 || length(flop) == 2) {
     # uporabnik ni ustrezno izbral flop kart
-    return("Prosim izberite ustrezno število flop kart.")
+    return(list(NULL, "Prosim izberite ustrezno število flop kart."))
   }
   
   flop_stevec <- FALSE
@@ -97,10 +97,10 @@ model <- function (igr_karte, flop, turn, river, nasprotniki, updateProgress = N
     verjetnosti <- strsplit(verjetnosti, split = " ")
     verjetnosti <- as.numeric(unlist(verjetnosti))
     
-    nacin <- c("Visoka karta", "Par", "Dva para", "Tris", "Lestvica", "Barva", "Poker", "Barvna lestvica", "Royal flush")
-    tabela_verjetnosti <- cbind(nacin, verjetnosti[2:10])
+    nacin <- c("Visoka karta", "Par", "Dva para", "Tris", "Lestvica", "Barva", "Full House", "Poker", "Barvna lestvica", "Royal flush")
+    tabela_verjetnosti <- cbind(nacin, verjetnosti[2:11])
     colnames(tabela_verjetnosti) <- c("Način zmage", "Verjetnost (v %)")
-    return (list(tabela_verjetnosti, verjetnosti[1]))
+    return (list(tabela_verjetnosti, paste0(sprintf("Verjetnost vaše zmage je enaka %s", verjetnosti[1]), "%.")))
   }
   
   
@@ -251,14 +251,14 @@ model <- function (igr_karte, flop, turn, river, nasprotniki, updateProgress = N
   
   
   # Izračunamo iskane verjetnosti
-  verjetnosti <- round(100*(c(st_zmag, zm_visokaKarta, zm_par, zm_2para, zm_tris, zm_lestvica, zm_barva, zm_poker, 
+  verjetnosti <- round(100*(c(st_zmag, zm_visokaKarta, zm_par, zm_2para, zm_tris, zm_lestvica, zm_barva, zm_fullHouse, zm_poker, 
                               zm_barvnaLestvica, zm_kraljevaLestvica))/st_iteracij, 2)
   
   
   
   # Specifične verjetnosti zapišemo v tabelo
-  nacin <- c("Visoka karta", "Par", "Dva para", "Tris", "Lestvica", "Barva", "Poker", "Barvna lestvica", "Royal flush")
-  tabela_verjetnosti <- cbind(nacin, verjetnosti[2:10])
+  nacin <- c("Visoka karta", "Par", "Dva para", "Tris", "Lestvica", "Barva", "Full House", "Poker", "Barvna lestvica", "Royal flush")
+  tabela_verjetnosti <- cbind(nacin, verjetnosti[2:11])
   colnames(tabela_verjetnosti) <- c("Način zmage", "Verjetnost (v %)")
   
   
@@ -267,7 +267,7 @@ model <- function (igr_karte, flop, turn, river, nasprotniki, updateProgress = N
   nova_vrstica <- data.frame("parametri" = parametri, "verjetnosti" = paste(verjetnosti, collapse = " "))
   write.table(nova_vrstica, file.path("www", "ze_izracunane.csv"), row.names = FALSE, append = TRUE, sep = ";", col.names = FALSE)
   
-  return(list(tabela_verjetnosti, verjetnosti[1]))
+  return(list(tabela_verjetnosti, paste0(sprintf("Verjetnost vaše zmage je enaka %s", verjetnosti[1]), "%.")))
 }
 
 

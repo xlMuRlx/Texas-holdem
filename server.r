@@ -155,13 +155,12 @@ server <- function(input, output, session) {
   
   
   output$rezultat <- renderText({
-    paste0(sprintf("Verjetnost vaše zmage je enaka %s", koncno()[[2]]), "%.")
+    koncno()[[2]]
   })
   
   
   output$tabela <- renderTable(bordered = TRUE, {
-    pomozna <- as.data.frame(koncno()[[1]])
-    pomozna
+    as.data.frame(koncno()[[1]])
   })
   
   
